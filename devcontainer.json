@@ -1,0 +1,27 @@
+{
+  "name": "ASocialNinjaStudio Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-vscode.vscode-typescript-next",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ],
+  "postCreateCommand": "npm install",
+  "remoteUser": "vscode",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Application Port",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "mounts": [
+    "source=/path/to/local/folder,target=/workspace,type=bind,consistency=cached"
+  ]
+}
